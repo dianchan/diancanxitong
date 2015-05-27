@@ -25,6 +25,9 @@ public class MealOrderItem implements UUIDEntity {
 	private Integer quantity;
 
 	private Date created;
+	
+	@Transient
+	private String mealName;
 
 	@Transient
 	private Meal meal;
@@ -98,6 +101,14 @@ public class MealOrderItem implements UUIDEntity {
 
 	public void setAccount(Account account) {
 		this.account = account;
+	}
+
+	public String getMealName() {
+		return mealName;
+	}
+
+	public void setMealName(String mealName) {
+		this.mealName = mealName;
 	}
 
 }
