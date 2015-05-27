@@ -5,7 +5,6 @@
 	<select id="getByOrderId">
 		FROM meal_order_item
 		WHERE meal_order_id=#{orderId}
-		GROUP BY meal_id
 	</select>
 
 	<!-- 查询订单详情 -->
