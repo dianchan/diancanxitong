@@ -21,7 +21,7 @@
 				</thead>
 				<tbody>
 					<tr ng-repeat="item in order.items | orderBy:item.meal.name">
-						<td><img ng-src="item.account.headimg"></td>
+						<td><img width="50" height="50" ng-src="{{item.account.headimg}}"></td>
 						<td>{{item.account.remarkName?item.account.remarkName:item.account.nickname}}<span class="glyphicon glyphicon-edit remark" ng-click="remark(item.account)"></span></td>	
 						<td>{{item.meal.name}}</td>
 						<td>{{item.meal.price+'元'}}</td>	
