@@ -3,9 +3,10 @@
 	<div scroller-box class="full_screen">
 		<div class="container-fluid list_box">
 			<div class="row">
-				<span class="col-xs-4">订单日期：{{order.created|date:'yyyy-MM-dd'}}</span>
-				<span class="col-xs-4">总计：{{order.total}}元</span>
-				<span class="col-xs-4">状态：{{order.status?'已结束':'正在点餐'}}</span>
+				<span class="col-xs-3">订单日期：{{order.created|date:'yyyy-MM-dd'}}</span>
+				<span class="col-xs-3">总共：{{order.items.length}}份</span>
+				<span class="col-xs-3">合计：{{order.total}}元</span>
+				<span class="col-xs-3">状态：{{order.status?'已结束':'正在点餐'}}</span>
 			</div>
 			<table class="table table-hover">
 				<thead>
