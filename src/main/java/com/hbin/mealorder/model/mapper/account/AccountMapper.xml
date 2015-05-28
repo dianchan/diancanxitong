@@ -3,7 +3,7 @@
 <mapper namespace="com.hbin.mealorder.model.mapper.account.AccountMapper">
 	<!-- 根据OpenId获取Account -->
 	<select id="getByOpenId">
-	FROM account
-	WHERE open_id = #{openId}
+	FROM account   
+	WHERE open_id = #{openId}  
 	</select>
 </mapper>  

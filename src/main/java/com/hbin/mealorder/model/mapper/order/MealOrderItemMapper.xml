@@ -3,21 +3,21 @@
 <mapper namespace="com.hbin.mealorder.model.mapper.order.MealOrderItemMapper">
 	<!-- 查询订单详情 -->
 	<select id="getByOrderId">
-		FROM meal_order_item
-		WHERE meal_order_id=#{orderId}
-	</select>
+		FROM meal_order_item 
+		WHERE meal_order_id=#{orderId} 
+	</select> 
 
 	<!-- 查询订单详情 -->
 	<select id="getAccountOrderItems">
-		@SELECT 
-		,meal.name as mealName
-		FROM 
-			meal_order_item
-			INNER JOIN meal ON meal.id = meal_order_item.meal_id
-		WHERE
-			meal_order_id=#{orderId}
-			AND account_id=#{accountId}
-		ORDER BY
-			created ASC
+		@SELECT   
+		,meal.name as mealName  
+		FROM   
+			meal_order_item 
+			INNER JOIN meal ON meal.id = meal_order_item.meal_id  
+		WHERE  
+			meal_order_id=#{orderId}  
+			AND account_id=#{accountId}  
+		ORDER BY   
+			created ASC  
 	</select>
 </mapper>  

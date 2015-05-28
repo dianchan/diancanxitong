@@ -3,8 +3,8 @@
 <mapper namespace="com.hbin.mealorder.model.mapper.meal.MealMapper">
 	
 	<select id="getAll">
-		FROM meal
-		ORDER BY
-			price ASC
+		FROM meal 
+		ORDER BY 
+			price ASC 
 	</select>
 </mapper>  

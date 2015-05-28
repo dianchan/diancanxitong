@@ -3,8 +3,8 @@
 <mapper namespace="com.hbin.mealorder.model.mapper.order.MealOrderMapper">
 	<!-- 查询最新的一张订单 -->
 	<select id="getLast">
-	FROM meal_order
-	ORDER BY created DESC
-	LIMIT 0,1
+	FROM meal_order  
+	ORDER BY created DESC  
+	LIMIT 0,1  
 	</select>
 </mapper>  
