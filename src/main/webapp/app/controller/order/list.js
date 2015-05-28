@@ -8,6 +8,11 @@ define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css
 			orderApi.getMealOrder({
 				success : function(data) {
 					console.log(data);
+					data.total = 0;
+					console.log(data);
+					data.total = _.reduce(data.items,function(item,total){
+						return item.meal.price*item.quantity+total;
+					});
 					$scope.order = data;
 					if(!data.status){
 						setTimeout(load, 5000);
