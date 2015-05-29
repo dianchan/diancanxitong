@@ -7,11 +7,12 @@ define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css
 		function load(){
 			orderApi.getMealOrder({
 				success : function(data) {
-					console.log(data);
-					data.total = 0;
-					console.log(data);
-					data.total = _.reduce(data.items,function(item,total){
-						return item.meal.price*item.quantity+total;
+//					data.total = 0;
+					data.total = _.reduce(data.items,function(total,item){
+						if(isNaN(total)){
+							total = total.meal.price;
+						}
+						return item.meal.price*item.quantity + total;
 					});
 					$scope.order = data;
 					if(!data.status){

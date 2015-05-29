@@ -19,4 +19,5 @@ public class TestMealService {
 	public void testGetAll(){
 		System.out.println(mealService.getAll());
 	}
+	
 }
