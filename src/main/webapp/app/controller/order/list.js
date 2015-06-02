@@ -4,24 +4,37 @@ define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css
 
 	app.register.controller('controller.order.list', [ '$scope', '$rootScope', '$location', 'mealApi', 'orderApi', 'accountApi', 'dialogService', function($scope, $rootScope, $location, mealApi, orderApi, accountApi, dialogService) {
 		load();
-		function load(){
+		function load() {
 			orderApi.getMealOrder({
 				success : function(data) {
-//					data.total = 0;
-					data.total = _.reduce(data.items,function(total,item){
-						if(isNaN(total)){
-							total = total.meal.price;
-						}
-						return item.meal.price*item.quantity + total;
-					});
+					data.total = _.reduce(data.items, function(total, item) {
+						return item.meal.price * item.quantity + total;
+					}, 0);
 					$scope.order = data;
-					if(!data.status){
+					if (!data.status) {
 						setTimeout(load, 5000);
 					}
 				}
 			});
 		}
-		
+		$scope.openOrder = function() {
+			if ($scope.order.status) {
+				orderApi.openOrder({
+					success : function(data) {
+						load();
+					}
+				});
+			}
+		};
+		$scope.closeOrder = function() {
+			if (!$scope.order.status) {
+				orderApi.closeOrder({
+					success : function(data) {
+						load();
+					}
+				});
+			}
+		};
 		$scope.remark = function(account) {
 			dialogService.input({
 				hasNull : true,

@@ -1,7 +1,13 @@
-.order_list_view{}
+.order_list_view {
+	
+}
 
-.order_list_view .list_box{
+.order_list_view .list_box {
 	padding: 0;
 	margin: 0 auto;
 }
 
+.order_list_view .btn {
+	height: 1.5em;
+	padding: 0;
+}
