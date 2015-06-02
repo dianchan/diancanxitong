@@ -7,7 +7,33 @@
 	margin: 0 auto;
 }
 
-.order_list_view .btn {
-	height: 1.5em;
-	padding: 0;
+.order_list_view .img {
+	width: 2.5em;
+	height: 2.5em;
+	padding-top: 0;
+	padding-bottom: 0;
+}
+
+.order_list_view .img_td {
+	padding: 2px;
+}
+
+.order_list_view  .col-xs-1 {
+	padding-right: 0;
+}
+
+.order_list_view  .col-xs-2 {
+	padding-right: 0;
+}
+
+.order_list_view  .input-group-addon, .order_list_view  .form-control {
+	padding-left: 3px;
+	padding-right: 3px;
+}
+
+.order_list_view thead {
+	background-color: #ddd;
+}
+.order_list_view table {
+	margin-top: 5px;
 }

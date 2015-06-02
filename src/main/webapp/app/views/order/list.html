@@ -3,13 +3,51 @@
 	<div scroller-box class="full_screen">
 		<div class="container-fluid list_box">
 			<div class="row">
-				<span class="col-xs-2">订单日期：{{order.created|date:'yyyy-MM-dd'}}</span>
-				<span class="col-xs-2">总共：{{order.items.length}}份</span>
-				<span class="col-xs-2">合计：{{order.total}}元</span>
-				<span class="col-xs-2">状态：{{order.status?'已结束':'正在点餐'}}</span>
-				<span class="col-xs-4">
-					<span ng-show="order.status" ng-click="openOrder()" class="btn btn-success">开始点餐</span>
-					<span ng-show="!order.status" ng-click="closeOrder()"  class="btn btn-success">结束点餐</span>
+				<span class="col-xs-2">
+					<div class="input-group">
+						<span class="input-group-addon">订单日期：</span>
+						<span class="form-control">{{order.created|date:'yyyy-MM-dd'}}</span>
+					</div>
+				</span>
+				<span class="col-xs-1">
+					<div class="input-group">
+						<span class="input-group-addon">总共：</span>
+						<span class="form-control">{{order.items.length}}份</span>
+					</div>
+				</span>
+				<span class="col-xs-2">
+					<div class="input-group">
+						<span class="input-group-addon">合计：</span>
+						<span class="form-control">{{order.total}}元</span>
+					</div>
+				</span>
+				<span class="col-xs-2">
+					<div class="input-group">
+						<span class="input-group-addon">状态：</span>
+						<span class="form-control">{{order.status?'已结束':'正在点餐'}}</span>
+					</div>
+				</span>
+				<span class="col-xs-2">
+					<div class="input-group">
+						<span class="input-group-addon">搜索:</span>
+						<input ng-model="query" type="text" class="form-control">
+					</div>
+				</span>
+				<span class="col-xs-2">
+					<div class="input-group">
+	            		<span class="input-group-addon">排序:</span>
+	            		<select ng-model="ord" class="form-control">
+		                	<option value="account.remarkName">姓名</option>
+		                	<option value="meal.name">菜名</option>
+		                	<option value="meal.price">单价</option>
+		                	<option value="quantity">数量</option>
+		                	<option value="created">下单时间</option>
+	            		</select>
+					</div>
+				</span>
+				<span class="col-xs-1">
+					<span ng-show="order.status" ng-click="openOrder()" class="btn btn-default">开始点餐</span>
+					<span ng-show="!order.status" ng-click="closeOrder()"  class="btn btn-default">结束点餐</span>
 				</span>
 			</div>
 			<table class="table table-hover">
@@ -25,8 +63,8 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in order.items | orderBy:item.meal.name">
-						<td><img width="35" height="35" ng-src="{{item.account.headimg}}"></td>
+					<tr ng-repeat="item in order.items | filter : query | orderBy : ord">
+						<td class="img_td"><img class="img" ng-src="{{item.account.headimg}}"></td>
 						<td>{{item.account.remarkName?item.account.remarkName:item.account.nickname}}<span class="glyphicon glyphicon-edit remark" ng-click="remark(item.account)"></span></td>	
 						<td>{{item.meal.name}}</td>
 						<td>{{item.meal.price+'元'}}</td>	
