@@ -7,6 +7,20 @@
 	margin: 0 auto;
 }
 
+.order_list_view .state-icon {
+	font-size: 2em;
+}
+.order_list_view .icon-box {
+	padding: 0;
+	padding-top: 4px;
+}
+/*选中背景色*/
+.order_list_view .checked_color {
+	background-color: #d9edf7;
+	color: #31708f;
+	font-weight: bold;
+}
+
 .order_list_view .img {
 	width: 2.5em;
 	height: 2.5em;
@@ -34,6 +48,7 @@
 .order_list_view thead {
 	background-color: #ddd;
 }
+
 .order_list_view table {
 	margin-top: 5px;
 }

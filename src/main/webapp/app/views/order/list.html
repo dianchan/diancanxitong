@@ -60,10 +60,11 @@
 						<th>数量</th>	
 						<th>总计</th>
 						<th>下单时间</th>
+						<th ng-show="order.status"></th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in order.items | filter : query | orderBy : ord">
+					<tr ng-repeat="item in order.items | filter : query | orderBy : ord" class="{{check[$index]?'checked_color':''}}">
 						<td class="img_td"><img class="img" ng-src="{{item.account.headimg}}"></td>
 						<td>{{item.account.remarkName?item.account.remarkName:item.account.nickname}}<span class="glyphicon glyphicon-edit remark" ng-click="remark(item.account)"></span></td>	
 						<td>{{item.meal.name}}</td>
@@ -71,6 +72,7 @@
 						<td>{{item.quantity+'份'}}</td>	
 						<td>{{item.meal.price*item.quantity+'元'}}</td>
 						<td>{{item.created|date:'HH:mm:ss'}}</td>
+						<td ng-show="order.status" class="icon-box" ng-click="check[$index]=!check[$index];"><span class="state-icon glyphicon {{check[$index]?'glyphicon-check':'glyphicon-unchecked'}}"></span></td>
 					</tr>
 				</tbody>
 			</table>
