@@ -3,8 +3,8 @@
 define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css!style/order/list', 'services/api/account/accountApi', 'directive/dialog/dialog' ], function(app) {
 
 	app.register.controller('controller.order.list', [ '$scope', '$rootScope', '$location', 'mealApi', 'orderApi', 'accountApi', 'dialogService', function($scope, $rootScope, $location, mealApi, orderApi, accountApi, dialogService) {
-		$scope.query='';
-		$scope.ord = 'meal.name';
+		$scope.query = '';
+		$scope.ord = 'account.id';
 		load();
 		function load() {
 			orderApi.getMealOrder({
@@ -15,6 +15,15 @@ define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css
 					$scope.order = data;
 					if (!data.status) {
 						setTimeout(load, 5000);
+					} else {
+						var itemMap = _.groupBy(data.items, function(item) {
+							return item.meal.name;
+						});
+						var text = _.template("<% for(var name in itemMap){ %>" + "<%=name%>:<%=_.reduce(itemMap[name],function(total,item){return item.quantity+total;},0)%>份\n" + "<%}%>")({
+							itemMap : itemMap
+						});
+						text = text + '\n总计：' + data.items.length + '份';
+						alert(text);
 					}
 				}
 			});
@@ -50,6 +59,13 @@ define([ 'app', 'services/api/meal/mealApi', 'services/api/order/orderApi', 'css
 							remarkName : account.remarkName
 						}
 					});
+				}
+			});
+		};
+		$scope.del = function() {
+			orderApi.deleteOrderMeal({
+				success : function(data) {
+					load();
 				}
 			});
 		};
