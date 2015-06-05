@@ -37,7 +37,7 @@
 					<div class="input-group">
 	            		<span class="input-group-addon">排序:</span>
 	            		<select ng-model="ord" class="form-control">
-		                	<option value="account.remarkName">姓名</option>
+		                	<option value="account.id">姓名</option>
 		                	<option value="meal.name">菜名</option>
 		                	<option value="meal.price">单价</option>
 		                	<option value="quantity">数量</option>
@@ -67,7 +67,7 @@
 					<tr order-item-id={{item.id}} ng-repeat="item in order.items | filter : query | orderBy : ord" class="{{check[$index]?'checked_color':''}}">
 						<td class="img_td"><img class="img" ng-src="{{item.account.headimg}}"></td>
 						<td>{{item.account.remarkName?item.account.remarkName:item.account.nickname}}<span class="glyphicon glyphicon-edit remark" ng-click="remark(item.account)"></span></td>	
-						<td>{{item.meal.name}}</td>
+						<td  class="icon-box">{{item.meal.name}}<span class="glyphicon glyphicon-remove state-icon" ng-click="del()"></span></td>
 						<td>{{item.meal.price+'元'}}</td>	
 						<td>{{item.quantity+'份'}}</td>	
 						<td>{{item.meal.price*item.quantity+'元'}}</td>

@@ -6,13 +6,13 @@
 	padding: 0;
 	margin: 0 auto;
 }
-
 .order_list_view .state-icon {
 	font-size: 2em;
 }
 .order_list_view .icon-box {
 	padding: 0;
 	padding-top: 4px;
+	line-height: 2em;
 }
 /*选中背景色*/
 .order_list_view .checked_color {
