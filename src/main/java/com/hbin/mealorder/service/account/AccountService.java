@@ -5,8 +5,8 @@ import com.hbin.mealorder.model.entity.account.Account;
 import com.hbin.mealorder.service.wx.user.WechartUserService;
 import com.hbin.mealorder.service.wx.user.dto.WeixinUserInfo;
 import com.lifesense.framework.common.util.StringUtil;
-import com.lifesense.framework.rest.exception.WebException;
-import com.lifesense.framework.rest.response.ResponseCode;
+import com.lifesense.framework.rest.base.exception.WebException;
+import com.lifesense.framework.rest.base.response.ResponseCode;
 
 public class AccountService {
 	private AccountDao accountDao = new AccountDao();

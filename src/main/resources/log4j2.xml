@@ -8,10 +8,10 @@
 	</Appenders>
 
 	<Loggers>
-		<Logger name="com.lifesense" level="debug" additivity="false">
+		<Logger name="com.lifesense" level="error" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
-		<Logger name="com.hbin" level="debug" additivity="false">
+		<Logger name="com.hbin" level="error" additivity="false">
 			<AppenderRef ref="Console" />
 		</Logger>
 		<Root level="error">

@@ -64,7 +64,7 @@
 					</tr>
 				</thead>
 				<tbody>
-					<tr ng-repeat="item in order.items | filter : query | orderBy : ord" class="{{check[$index]?'checked_color':''}}">
+					<tr order-item-id={{item.id}} ng-repeat="item in order.items | filter : query | orderBy : ord" class="{{check[$index]?'checked_color':''}}">
 						<td class="img_td"><img class="img" ng-src="{{item.account.headimg}}"></td>
 						<td>{{item.account.remarkName?item.account.remarkName:item.account.nickname}}<span class="glyphicon glyphicon-edit remark" ng-click="remark(item.account)"></span></td>	
 						<td>{{item.meal.name}}</td>

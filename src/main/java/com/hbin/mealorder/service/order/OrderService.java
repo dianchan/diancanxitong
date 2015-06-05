@@ -15,8 +15,8 @@ import com.hbin.mealorder.model.entity.order.MealOrder;
 import com.hbin.mealorder.model.entity.order.MealOrderItem;
 import com.hbin.mealorder.model.entity.order.enums.MealOrderStatus;
 import com.lifesense.framework.common.util.StringUtil;
-import com.lifesense.framework.rest.exception.WebException;
-import com.lifesense.framework.rest.response.ResponseCode;
+import com.lifesense.framework.rest.base.exception.WebException;
+import com.lifesense.framework.rest.base.response.ResponseCode;
 
 public class OrderService {
 

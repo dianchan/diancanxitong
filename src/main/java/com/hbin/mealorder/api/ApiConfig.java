@@ -2,7 +2,7 @@ package com.hbin.mealorder.api;
 
 import javax.ws.rs.ApplicationPath;
 
-import com.lifesense.framework.rest.resourceconfig.JsonResourceConfig;
+import com.lifesense.framework.rest.base.resourceconfig.BaseResourceConfig;
 
 /**
  * REST ResourceConfig
@@ -11,5 +11,5 @@ import com.lifesense.framework.rest.resourceconfig.JsonResourceConfig;
  *
  */
 @ApplicationPath("api")
-public class ApiConfig extends JsonResourceConfig {
+public class ApiConfig extends BaseResourceConfig {
 }
