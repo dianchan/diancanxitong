@@ -4,14 +4,14 @@ import java.util.Date;
 
 import com.hbin.mealorder.model.entity.account.Account;
 import com.hbin.mealorder.model.entity.meal.Meal;
-import com.lifesense.framework.mybatis.entity.id.UUIDEntity;
+import com.lifesense.framework.model.base.entity.UUIDEntity;
 import com.lifesense.framework.mybatis.interceptor.generatesql.annotation.Id;
 import com.lifesense.framework.mybatis.interceptor.generatesql.annotation.Table;
 import com.lifesense.framework.mybatis.interceptor.generatesql.annotation.Transient;
 
 @SuppressWarnings("serial")
 @Table
-public class MealOrderItem implements UUIDEntity {
+public class MealOrderItem extends UUIDEntity {
 
 	@Id
 	private String id;
