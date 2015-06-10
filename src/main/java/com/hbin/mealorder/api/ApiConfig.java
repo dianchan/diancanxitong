@@ -2,7 +2,7 @@ package com.hbin.mealorder.api;
 
 import javax.ws.rs.ApplicationPath;
 
-import com.lifesense.framework.rest.base.resourceconfig.BaseResourceConfig;
+import com.lifesense.framework.rest.mybatis.MybatisResourceConfig;
 
 /**
  * REST ResourceConfig
@@ -11,5 +11,5 @@ import com.lifesense.framework.rest.base.resourceconfig.BaseResourceConfig;
  *
  */
 @ApplicationPath("api")
-public class ApiConfig extends BaseResourceConfig {
+public class ApiConfig extends MybatisResourceConfig {
 }
